@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BRANDMEDIA</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="style-slider.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<script src="slides.js"></script>
+	<script>
+		/*
+			Get the curent slide
+		*/
+		function currentSlide( current ) {
+			$(".current_slide").text(current + " of " + $("#slides").slides("status","total") );
+		}
+		
+		$(function(){
+			/*
+				Initialize SlidesJS
+			*/
+			$("#slides").slides({
+				navigateEnd: function( current ) {
+					currentSlide( current );
+				},
+				loaded: function(){
+					currentSlide( 1 );
+				}
+			});
+			
+			/*
+				Play/stop button
+			*/
+			$(".controls").click(function(e) {
+				e.preventDefault();
+				
+				// Example status method usage
+				var slidesStatus = $("#slides").slides("status","state");
+				
+				if (!slidesStatus || slidesStatus === "stopped") {
+
+					// Example play method usage
+					$("#slides").slides("play");
+
+					// Change text
+					$(this).text("Stop");
+				} else {
+					
+					// Example stop method usage
+					$("#slides").slides("stop");
+					
+					// Change text
+					$(this).text("Play");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="header">
+			<div class="logo">
+				<a href="#">
+					<img src="img/logo.png" alt="logo">
+					<span class="name_site">BRANDMEDIA</span>
+				</a>
+			</div> <!-- end logo -->
+			
+			<div class="l_text">
+			     	<span>We love beautifuul things</span>
+			     </div> <!-- end slogan -->
+			<div class="navigation">
+			 	<ul class="list_navigation">
+			 		<li class="item_navigation">
+			 			<a href="#">
+			 				<img src="img/home.png" alt="home_button">
+			 			</a>
+			 		</li>
+			 		<li class="item_navigation">
+			 			<a href="#">about us</a>
+			 		</li>
+			 		<li class="item_navigation">
+			 			<a href="#">portfolio</a>
+			 		</li>
+			 		<li class="item_navigation">
+			 			<a href="#">services</a>
+			 		</li>
+			 		<li class="item_navigation main_menu">
+			 			<a href="#">
+			 				blog
+			 			</a>
+			 			<ul class="menu">
+							<li class="item">
+								<a href="#">App Media</a>
+							</li>
+							<li class="item">
+								<a href="#">Branding</a>
+							</li>
+							<li class="item">
+								<a href="#">Case Study</a>
+							</li>
+							<li class="item">
+								<a href="#">Devices</a>
+							</li>
+							<li class="item">
+								<a href="#">Jobs</a>
+							</li>
+							<li class="item">
+								<a href="#">Networks</a>
+							</li>
+							<li class="item">
+								<a href="#">Staff</a>
+							</li>
+							<li class="item">
+								<a href="#">Tutorials</a>
+							</li>
+						</ul> <!--end ul.menu-->
+					</li> <!-- end li. item_navigator .main_menu-->
+			 		<li class="item_navigation">
+			 			<a href="#">contact</a>
+			 		</li>
+			 	</ul>
+			 </div> <!-- end navigation -->
+		</div><!-- end header -->
+
+		<div class="content_bg">
+			<div class="content">
+				<div class="We_make_dreams">
+					<p>creative agency</p>
+					<h1>We Make Dreams</h1>
+					<p class="WMD">beatifuly interface and creative solution</p>
+					<a href="#" class="read_more">Read more</a>
+					<a href="#" class="Portfolio">portfolio</a>
+				</div><!-- end We_makes_dreams -->
+				<div class="slider">
+					<div id="container">
+		
+		<!-- start SlidesJS slideshow -->
+		<div id="slides">
+				<img src="http://www.fresher.ru/manager_content/images/fotograf-slim-lyotaef/big/25.jpg" width="415" height="300" alt="Slide 1">
+				
+				<img src="http://www.smilebooks.ru/i/cXCvwcBB.jpg" width="415" height="300" alt="Slide 2">
+
+				<img src="http://pics.livejournal.com/sviridenkov/pic/002ys0sq" width="415" height="300" alt="Slide 3">
+
+				<img src="http://mirmix.com/wp-content/photo/2011/09/Litso.jpg" width="415" height="300" alt="Slide 4">
+
+				<img src="http://fishki.net/picsw/032010/03/bonus/photos/tn.jpg" width="415" height="300" alt="Slide 5">
+
+				<img src="http://bigpicture.ru/wp-content/uploads/2011/05/3307.jpg" width="415" height="300" alt="Slide 6">
+
+				<img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT9uUiBcpS0wjaDAfBRLGxxN1aRi7TEVqFjXtb5LFf9f3vpuE6q" width="415" height="300" alt="Slide 7">
+		</div>
+		<!-- end SlidesJS  slideshow -->
+		
+		<!-- Example play/stop controls -->
+		<a href="#" class="controls">Play</a>
+		
+		<!-- Example slide count -->
+		<p class="current_slide"></p>
+	</div>
+				</div><!-- end slider -->
+			</div><!-- end content -->
+		</div><!-- end content_bg -->
+	<div class="border_a_u_m clearfix">
+			<div class="about_us_menu">
+				<input type="radio" name="item_about_us_menu" id="who_are_we">	
+					<label for="who_are_we" >
+						<div class="item_about_us_menu" id="i_first">
+							<b>WHO ARE WE</b><br>
+							<i>something about us</i>
+						</div>
+					</label>
+
+					<input type="radio" name="item_about_us_menu" id="why_hire_us">	
+					<label for="why_hire_us" >
+						<div class="item_about_us_menu">
+							<b>WHY HIRE US</b><br>
+							<i>Look at how we work</i>
+						</div>
+					</label>
+
+					<input type="radio" name="item_about_us_menu" id="we_can_offer">	
+					<label for="we_can_offer" >
+						<div class="item_about_us_menu">
+							<b>WE CAN OFFER</b><br>
+							<i>The best services</i>
+						</div>
+					</label>
+
+					<input type="radio" name="item_about_us_menu" id="testimonials">	
+					<label for="testimonials" >
+						<div class="item_about_us_menu" id="i_last">
+							<b>TESTiMONIALS</b><br>
+							<i>Customers testimonials</i>
+						</div>
+					</label>									
+			</div><!-- end about_us_menu -->
+		
+		<div class="container_text">
+			<div class="left_side">
+				<div class="text">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum iste ab eum est veniam asperiores, ex neque voluptate hic vel, at ducimus dicta veritatis aspernatur quas tempora porro quibusdam assumenda. Voluptas quo beatae nobis ipsam repellendus in eligendi aliquid sapiente.?</p>
+					
+					<p>Rerum nobis repudiandae hic, qui fuga deleniti. Corporis, voluptatibus quas, blanditiis, quo fuga laudantium tempora cumque reiciendis, necessitatibus minima voluptate. Obcaecati a ut quo pariatur qui corporis, sequi nesciunt sit facere, totam harum omnis quam quibusdam? Quam cum quibusdam velit vitae, incidunt voluptatem officia esse amet assumenda nesciunt nulla atque iure blanditiis fuga qui. Laborum odio laboriosam, voluptates repellendus sed. Magnam incidunt nisi ullam, earum unde architecto beatae nesciunt repellat ut doloremque laborum sed dolore, omnis fuga voluptates perspiciatis illum voluptatum totam optio quo blanditiis eos. Esse aperiam sunt corporis laboriosam! Expedita ut illo, ad quasi quisquam hic dolores maxime! Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				</div><!-- end text -->
+				<div class="social_button">
+					<a href="http://vk.com/" class="vk">vkontakte</a>
+					<a href="https://www.facebook.com/" class="facebook">facebook</a>
+					<a href="https://twitter.com/" class="twitter">twitter</a>				
+				</div><!-- end social_button -->
+			</div><!-- end left_side -->	
+			
+			<div>
+				<div class="avatar">
+					<img src="img/logo_unknow.png" alt="avatar">
+					<p id="1">About us</p>
+					<a  class="a_send" href="#1">Get in touch</a>
+					<a  class="search"  href="#"><img src="img/search.png" alt="search"></a>
+				</div>
+			</div>	
+		</div><!-- end container_text -->
+	</div><!-- end border_a_u_m -->	
+		<div class="slides">	
+			<div class="slides_con">
+				<a href="#" id="img">
+						<div class="layer1"></div>
+						<div class="layer2"></div>
+						<div class="layer3"></div>
+						<div class="layer4"></div>
+						<div class="shadow"></div>	
+				</a>
+				<p class="b">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, ea quisquam illo quibusdam placeat a voluptatibus voluptas, eveniet aliquam eligendi? Cumque, eos possimus fugit dignissimos mollitia neque dicta, sequi architecto ullam vel voluptatibus, assumenda expedita libero omnis itaque dolores pariatur numquam voluptas illo excepturi voluptatum aliquam adipisci. Ipsa a consequatur minima ad quidem hic aliquid in tenetur adipisci vitae eaque neque esse nemo, ea odit, beatae laboriosam eius itaque molestias mollitia blanditiis porro omnis voluptatum. Accusantium repudiandae unde quas perspiciatis tempora voluptatum iusto? Eius, iure, eligendi delectus laboriosam maxime unde eveniet enim alias hic quas nobis id. Reprehenderit a, numquam sequi quam ipsa sed tempore excepturi asperiores dicta commodi nam magni in neque velit nisi totam aperiam animi temporibus sapiente dolorem ipsam distinctio optio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, nam eaque culpa, veniam, reprehenderit iure dolores, itaque ipsam voluptates illum quo corrupti ullam. Nostrum distinctio, et magnam velit harum eum pariatur, autem consequatur temporibus unde molestias culpa ducimus dolores ad. Reprehenderit quae cumque esse doloribus sequi excepturi corporis, similique distinctio! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam et, autem reprehenderit voluptates perspiciatis illo molestias explicabo suscipit repellendus, facere iure? Laborum pariatur, obcaecati porro minus ex doloremque a. Odio similique mollitia perferendis accusamus, laudantium, ea quaerat consequuntur aliquid earum quia ullam omnis quas placeat officiis nesciunt cupiditate, expedita.
+			</div><!--end slides_con-->
+		</div><!--end slides-->
+		<div class="wrap-bfooter">	
+			<div class="before_footer">
+				<a href="tour" class="tour">
+					<div class="bftitle t-title">BRANDMEDIA TOUR</div>
+					<div class="bftext t-text">Watch no the video</div>
+					<div class="bfname t-name">Videotour</div>
+					<div class="bfimg t-img"><img src="img/tour.png" alt="tour"></div>
+				</a>
+				<a href="apps" class="apps">
+					<div class="bftitle a-title">BRANDMEDIA APPS</div>
+					<div class="bftext a-text">Avaliable on the Apple</div>
+					<div class="bfname a-name">App Store </div>
+					<div class="bfimg a-img"><img src="img/apps.png" alt="apps"></div>
+				</a>
+				<a href="jobs" class="jobs">
+					<div class="bftitle j-title">BRANDMEDIA JOBS</div>
+					<div class="bftext j-text">Find a freelancer</div>
+					<div class="bfname j-name">Job Board</div>
+					<div class="bfimg j-img"><img src="img/jobs.png" alt=""></div>
+				</a>
+			</div><!--end before_footer-->
+			<div class="bfbutton">
+				<a href="go-to-tour"></a>
+				<a href="app-store"></a>
+				<a href="get-a-job"></a>
+			</div><!--end before_footer-->
+		</div><!--end wrap-bfooter-->
+		<div class="wrapNewArea">
+		<div class="newArea">
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="newAreaItem"></div>
+			<div class="clearfix"></div>
+		</div>
+		</div>
+	</div>
+	</body> 
+</html>

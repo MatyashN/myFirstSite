@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style type="text/css">
+#slider-wrapper{
+width: 940px;
+height: 470px;
+margin: 50px auto;
+position: relative;
+margin-bottom: 0px;
+background: white;
+
+}
+label {
+width: 0px;
+height: 0px;
+background: green;
+position: absolute;
+right: 50px;
+bottom: 25px;
+border-radius: 20px;
+opacity: 0.3;
+cursor: pointer;
+z-index: 3;
+} 
+
+#s1:hover, #s2:hover, #s3:hover, #s4:hover{ opacity: 1;}
+
+.inner-wrapper{
+width: 940px;
+height: 470px;
+position: absolute;
+top: 0;
+left: 0;
+margin-bottom: 0px;
+
+}
+.control{ display: none;}
+
+#Slide1:checked ~ .control + #s2 { width: 20px; height: 20px; }
+#Slide1:checked ~ .control + #s4 { width: 20px; height: 20px; left:50px}
+
+
+
+#Slide2:checked ~ .control + #s3 { width: 20px; height: 20px; }
+#Slide2:checked ~ .control + #s1 { width: 20px; height: 20px; left:50px}
+
+#Slide3:checked ~ .control + #s4 { width: 20px; height: 20px; }
+#Slide3:checked ~ .control + #s2 { width: 20px; height: 20px; left:50px}
+
+#Slide4:checked ~ .control + #s1 { width: 20px; height: 20px; }
+#Slide4:checked ~ .control + #s3 { width: 20px; height: 20px; left:50px}
+
+
+.overflow-wrapper {
+height: 470px;
+position: absolute;
+top: 0;
+left: 0;
+font-size: 0;
+-webkit-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+}
+
+.slide img{
+position:relative;
+height:470px;
+width: 940px;
+opacity: 0;
+padding: 0px;
+margin:0px;
+transition:1s;
+display: block;
+}
+#Slide1:checked ~ .overflow-wrapper #d1 { transition:2s; opacity: 1; }
+#Slide2:checked ~ .overflow-wrapper #d2 { transition:2s; opacity: 1; }
+#Slide3:checked ~ .overflow-wrapper #d3 { transition:2s; opacity: 1; } 
+#Slide4:checked ~ .overflow-wrapper #d4 { transition:2s; opacity: 1; }
+
+#d1 {
+
+}
+#d2 {
+bottom:470px;
+}
+#d3 {
+bottom:940px;
+}
+#d4 {
+bottom:1410px;
+}
+</style>
+<div id="slider-wrapper">
+<div class="inner-wrapper">
+<input checked type="radio" name="slide" class="control" id="Slide1"/>
+<label for="Slide1" id="s1"></label>
+<input type="radio" name="slide" class="control" id="Slide2"/>
+<label for="Slide2" id="s2"></label>
+<input type="radio" name="slide" class="control" id="Slide3"/>
+<label for="Slide3" id="s3"></label>
+<input type="radio" name="slide" class="control" id="Slide4"/>
+<label for="Slide4" id="s4"></label>
+
+<input type="radio" name="slide" class="control" id="Slide1"/>
+<label for="Slide1" id="s1"></label>
+<input type="radio" name="slide" class="control" id="Slide2"/>
+<label for="Slide2" id="s2"></label>
+<input type="radio" name="slide" class="control" id="Slide3"/>
+<label for="Slide3" id="s3"></label>
+<input type="radio" name="slide" class="control" id="Slide4"/>
+<label for="Slide4" id="s4"></label>
+<div class="overflow-wrapper">
+
+<a class="slide" href=""><img id="d1" src="http://pic.rk.ua/di-1MPX.jpg"/></a>
+<a class="slide" href=""><img id="d2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4dTQOEmi07UywWdX_SweQX0AU1Ogb-XFjNVc0s6I-2ERYi97M"/></a>
+<a class="slide" href=""><img id="d3" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRSlzzN_tiXQHoiSp51sNFYYGHrZTe8KbPFJqM8btnh-RP0bdM_"/></a>
+<a class="slide" href=""><img id="d4" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQBqlMYAcHuy1FgPkzEE4yzYc8Z_A31ZAqcTnydXrYMGdFVxhrA"/></a>
+</div>
+</div>
+</div>
+</body>
+<html>
